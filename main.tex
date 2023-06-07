@@ -1,0 +1,103 @@
+\documentclass[a4paper,11pt,hyperfootnotes]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[font={small}, bf]{caption}
+\usepackage{hyperref}
+\usepackage[]{fullpage}
+\usepackage[titletoc,title]{appendix}
+\usepackage{listings}
+% \usepackage{gloss}
+\newcommand\nil{\varnothing}
+% \newcommand\defeq{:=}
+\newcommand\defeq{\overset{\textrm{\tiny def}}{=}}
+\newcommand\Xor{\underset{\textbf{\Large--}}{\bigvee}}
+\providecommand{\xor}{\veebar}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\declaretheoremstyle[
+spaceabove=8pt, spacebelow=8pt,headfont=\normalfont\bfseries,headpunct={.\\},notefont=\bfseries, notebraces={ -- }{},bodyfont=\normalfont,postheadspace=4pt,qed={}]{theorem}
+% \newtheorem{definition}{Definition}
+% \newtheorem{corollary}[definition]{Corollary}
+% \newtheorem{theorem}[definition]{Theorem}
+% \newtheorem{lemma}[definition]{Lemma}
+
+\declaretheorem[style=theorem]{theorem}
+\declaretheorem[style=theorem,sibling=theorem]{definition}
+\declaretheorem[style=theorem,sibling=theorem]{corollary}
+\declaretheorem[style=theorem,sibling=theorem]{lemma}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\DeclareMathOperator{\concat}{\operatorname{\oplus}}
+\DeclareMathOperator{\Concat}{\operatornamewithlimits{\bigoplus}}
+\DeclareMathOperator{\rangedel}{:}
+% \DeclareMathOperator{\xor}{:}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows.meta,fit,positioning,shapes,automata}
+\usepackage{forest}
+\usepackage{graphicx}
+% \makeatletter
+% \def\ll@definition{%
+%   \protect\numberline{\csname the\thmt@envname\endcsname}%
+%   \ifx\@empty\thmt@shortoptarg
+%     \thmt@thmname
+%   \else
+%     \thmt@shortoptarg
+%   \fi}
+% \def\l@thmt@definition{} 
+% \makeatother
+\bibliographystyle{apalike}
+% statuses in section names
+\newif\ifdraft
+% \drafttrue % Uncomment to compile whole draft document / comment to compile only finished sections.
+% for error explanation see: https://tex.stackexchange.com/questions/64298/error-with-xcolor-package
+\usepackage{xcolor}
+\colorlet{GREEN}{green}
+\colorlet{ORANGE}{orange}
+\colorlet{YELLOW}{yellow}
+\colorlet{RED}{red}
+% none of these work
+% \ifdraft
+\usepackage{bbding}
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+% \usepackage{unicode-math}
+% \newcommand{\cmark}{\setmainfont{Linux Libertine O}\symbol{"2714}\par}
+% \newcommand{\xmark}{\setmainfont{Linux Libertine O}\symbol{"2718}\par}
+% \usepackage{fontawesome}
+% \def\cmark{\FA\symbol{"F00C}}
+% \def\xmark{\FA\symbol{"F00D}}
+% \fi
+% \newcommand{\cmark}{${\checkmark}$}
+% \newcommand{\xmark}{${\times}$}
+% \newcommand{\cmark}{***}
+% \newcommand{\xmark}{xxx}
+\newcommand{\validator}[1]{\mathbb{V}^{\textsc{#1}}}
+\newcommand{\proofof}[1]{\Pi^{\textsc{#1}}}
+\newcommand{\idx}[1]{\texttt{[}\/#1\/\texttt{]}}
+\newcommand\statusgreen{\ifdraft \textcolor{green}{\cmark}\fi} 
+\newcommand\statusyellow{\ifdraft \textcolor{yellow}{\cmark}\fi} 
+\newcommand\statusorange{\ifdraft \textcolor{orange}{\cmark}\fi} 
+\newcommand\statusred{\ifdraft \textcolor{red}{\xmark}\fi} 
+\newcommand\statuspriority{\ifdraft \textcolor{blue}{PRIORITY}\fi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand{\listtheoremname}{}
+\usepackage[margin=1cm]{caption}
+\usepackage{anyfontsize}
+\usepackage{longtable}
+\usepackage{parskip}
+\usepackage{booktabs}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{\baselineskip}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{colortbl}
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, sharp corners, enhanced, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, interior hidden, breakable]}{\end{tcolorbox}}\fi
+\input{skeleton}
+
